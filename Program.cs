@@ -28,8 +28,7 @@ namespace TableofPowers
                 } while (!CheckInput(num));
 
                 Console.WriteLine();
-                Console.WriteLine($"Number\t\tSquared\t\tCubed");
-                Console.WriteLine($"=======\t\t=======\t\t=======");
+
                 DisplayTable(num);
                 Console.WriteLine();
 
@@ -45,21 +44,22 @@ namespace TableofPowers
 
         }
 
-        static void DisplayTable(int num)
+        static void DisplayTable(int input)
         {
-            for (int i = 0; i < num;)
+            Console.WriteLine(String.Format("{0,17} {1,17} {2,17}", "Number", "Squared", "Cubed"));
+            Console.WriteLine(String.Format("{0,17} {1,17} {2,17}", "=======", "=======", "======="));
+
+            for (int i = 0; i < input;)
             {
                 i++;
                 int squaredi = i * i;
                 int cubedi = squaredi * i;
-                if (squaredi < 1000000)
-                {
-                    Console.WriteLine($"{i:N0}\t\t{squaredi:N0}\t\t{cubedi:N0}");
-                }
-                else
-                {
-                    Console.WriteLine($"{i:N0}\t\t{squaredi:N0}\t{cubedi:N0}");
-                }
+                
+                string num = i.ToString("N0");
+                string numsquare = cubedi.ToString("N0");
+                string numcubed = cubedi.ToString("N0");
+
+                Console.WriteLine(String.Format("{0,17} {1,17} {2,17}", num, numsquare, numcubed));
             }
         }
 
